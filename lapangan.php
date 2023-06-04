@@ -22,7 +22,8 @@ class Lapangan {
         $this->pesanan[] = $pesanan;
     }
 
-    public function hitungHarga($durasi) {
+    public function hitungHarga($jamMulai, $jamSelesai) { // Memperbaiki parameter yang diterima
+        $durasi = $this->hitungDurasi($jamMulai, $jamSelesai);
         $totalHarga = count($this->pesanan) * $this->hargaSewa * $durasi;
         return $totalHarga;
     }
