@@ -20,18 +20,14 @@
 
         $lapangan = new Lapangan('Basket', 350000);
 
-        if ($lapangan->cekWaktu($tanggal, $jamMulai, $jamSelesai)) {
-            header("Location: pemesanan-gagal.php");
-            exit();
-        } else {
-            $lapangan->pesanLapangan($nama, $tanggal, $jamMulai, $jamSelesai);
-            $durasi = $lapangan->hitungDurasi($jamMulai, $jamSelesai);
-            $harga = $lapangan->hitungHarga($durasi);
-            header("Location: pemesanan-berhasil.php?nama=$nama&tanggal=$tanggal&jam_mulai=$jamMulai&jam_selesai=$jamSelesai&durasi=$durasi&harga=$harga");
-            exit();
-        }
+        $lapangan->pesanLapangan($nama, $tanggal, $jamMulai, $jamSelesai);
+        $durasi = $lapangan->hitungDurasi($jamMulai, $jamSelesai);
+        $harga = $lapangan->hitungHarga($durasi);
+        header("Location: pemesanan-berhasil.php?nama=$nama&tanggal=$tanggal&jam_mulai=$jamMulai&jam_selesai=$jamSelesai&durasi=$durasi&harga=$harga");
+        exit();
     }
     ?>
+
 
     <form method="POST" action="index.php" onsubmit="return validateForm()">
         <label for="nama">Nama:</label>
