@@ -1,11 +1,9 @@
 <?php
 class Lapangan {
-    private $jenis;
     private $hargaSewa;
     private $pesanan = array();
 
     public function __construct($jenis, $hargaSewa) {
-        $this->jenis = $jenis;
         $this->hargaSewa = $hargaSewa;
     }
 
