@@ -3,7 +3,7 @@ class Lapangan {
     private $hargaSewa;
     private $pesanan = array();
 
-    public function __construct($jenis, $hargaSewa) {
+    public function __construct($hargaSewa) {
         $this->hargaSewa = $hargaSewa;
     }
 
