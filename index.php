@@ -18,11 +18,11 @@
         $jamMulai = $_POST['jam_mulai'];
         $jamSelesai = $_POST['jam_selesai'];
 
-        $lapangan = new Lapangan('Basket', 350000);
+        $lapangan = new Lapangan(350000);
 
         $lapangan->pesanLapangan($nama, $tanggal, $jamMulai, $jamSelesai);
         $durasi = $lapangan->hitungDurasi($jamMulai, $jamSelesai);
-        $harga = $lapangan->hitungHarga($durasi);
+        $harga = $lapangan->hitungHarga($jamMulai, $jamSelesai); // Memperbaiki argumen yang diberikan
         header("Location: pemesanan-berhasil.php?nama=$nama&tanggal=$tanggal&jam_mulai=$jamMulai&jam_selesai=$jamSelesai&durasi=$durasi&harga=$harga");
         exit();
     }
